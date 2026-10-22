@@ -1,0 +1,92 @@
+:root {
+  --bg: #f3f1e7;
+  --surface: #fffdf6;
+  --text: #1c2340;
+  --muted: #6a7090;
+  --border: #d9d4bf;
+  --accent: #2b3a8c;
+  --accent-text: #ffffff;
+  --highlight: #ffe45e;
+  --green: #1f8a4c;
+  --orange: #d9820b;
+  --red: #c62d3f;
+}
+
+/* Dark theme colours are ready. Issue #6 only needs the toggle + Redux state. */
+[data-theme='dark'] {
+  --bg: #12152a;
+  --surface: #1b1f3a;
+  --text: #eceefb;
+  --muted: #a0a6cc;
+  --border: #2f3560;
+  --accent: #8d9bff;
+  --accent-text: #12152a;
+  --highlight: #7a6a00;
+  --green: #4cd68a;
+  --orange: #ffb347;
+  --red: #ff6b7d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.2s, color 0.2s;
+}
+
+.app { max-width: 960px; margin: 0 auto; padding: 24px 16px 48px; }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border);
+}
+.navbar h1 { margin: 0; font-size: 1.8rem; background: linear-gradient(transparent 60%, var(--highlight) 60%); display: inline-block; }
+.tagline { margin: 6px 0 0; color: var(--muted); }
+
+.summary { display: flex; gap: 32px; margin: 24px 0; }
+.summary div { display: flex; flex-direction: column; }
+.summary-number { font-size: 2rem; font-weight: 700; }
+.summary-label { color: var(--muted); font-size: 0.9rem; }
+
+.add-form { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+.add-form input {
+  flex: 1; min-width: 200px; padding: 10px 12px; font-size: 1rem;
+  border: 1.5px solid var(--border); border-radius: 6px;
+  background: var(--surface); color: var(--text);
+}
+.error { width: 100%; margin: 0; color: var(--red); font-size: 0.9rem; }
+
+button {
+  padding: 10px 16px; font-size: 0.95rem; cursor: pointer;
+  border: 1.5px solid var(--accent); border-radius: 6px;
+  background: var(--accent); color: var(--accent-text);
+}
+button.secondary { background: transparent; color: var(--accent); }
+button:focus-visible, input:focus-visible { outline: 3px solid var(--highlight); outline-offset: 2px; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.card {
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 16px;
+}
+.card-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.card-header h3 { margin: 0; font-size: 1.1rem; }
+.delete-btn { padding: 4px 8px; background: transparent; border-color: var(--border); }
+
+.percentage { font-size: 2.2rem; font-weight: 700; margin: 12px 0 0; }
+.percentage.green { color: var(--green); }
+.percentage.orange { color: var(--orange); }
+.percentage.red { color: var(--red); }
+
+.muted { color: var(--muted); margin: 4px 0 12px; font-size: 0.9rem; }
+.bunks { margin: 0 0 6px; }
+.warning { color: var(--red); font-size: 0.85rem; margin: 0 0 8px; }
+.actions { display: flex; gap: 8px; margin-top: 12px; }
+.empty { color: var(--muted); text-align: center; padding: 32px 0; }
